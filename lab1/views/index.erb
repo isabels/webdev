@@ -1,0 +1,15 @@
+<h1>Isabel's to do list</h1>
+
+<%= @lines.each do |line| %>
+	<p><%= line %></p>
+
+<% #task, due_date = line.split(" - ") %>
+<p> <% #"#{task} - #{due_date}" %>   </p> 
+
+<h2> Add another climb!</h2>
+<!-- <form action='/' method='POST'>
+  <strong>New Task:</strong>
+  <input type='text' name='task' placeholder='task content' />
+  <input type='text' name='date' placeholder='due date' />
+  <input type='submit' value='Save'>
+</form> -->
