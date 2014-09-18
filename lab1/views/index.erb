@@ -1,15 +1,30 @@
-<h1>Isabel's to do list</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>To Do List</title>
+  <style>
+  body{
+  	font-family: sans-serif;
+  	margin: 10px auto;
+  }
+   </style>
+</head>
+<body>
+	<h1>Isabel's to do list</h1>
+	<ul>
+		<% @lines.each do |line| %>
+			<% task, date = line.split(" - ") %>
+			<li><%="#{task} #{date}"%> </li>
+		<% end %>	
+	</ul>
+	<h2> Add another climb!</h2>
+	<form action='/' method='POST'>
+  		<strong>New Climb:</strong>
+  		<input type='text' name='task' placeholder='climb' />
+  		<input type='text' name='date' placeholder='date' />
+  		<input type='submit' value='Save'>
+	</form>
+</body>
+</html>
 
-<%= @lines.each do |line| %>
-	<p><%= line %></p>
 
-<% #task, due_date = line.split(" - ") %>
-<p> <% #"#{task} - #{due_date}" %>   </p> 
-
-<h2> Add another climb!</h2>
-<!-- <form action='/' method='POST'>
-  <strong>New Task:</strong>
-  <input type='text' name='task' placeholder='task content' />
-  <input type='text' name='date' placeholder='due date' />
-  <input type='submit' value='Save'>
-</form> -->
