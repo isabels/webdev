@@ -1,3 +1,22 @@
 body {
-	font-family: sans-serif;
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	background-color: #99D699;
+	color: #3D1F00;
+}
+
+ul {
+	font-family: Arial;
+}
+
+h1 {
+	text-align: center;
+}
+
+.wrapper{
+	margin: 0 auto;
+	width: 35%;
+}
+
+h2 {
+	text-align: center;
 }

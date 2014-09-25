@@ -5,20 +5,22 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-	<h1>Isabel's to do list</h1>
-	<ul>
-		<% @lines.each do |line| %>
-			<% task, date = line.split(" - ") %>
-			<li><%="#{task} #{date}"%> </li>
-		<% end %>	
-	</ul>
-	<h2> Add another climb!</h2>
-	<form action='/' method='POST'>
-  		<strong>New Climb:</strong>
-  		<input type='text' name='task' placeholder='climb' />
-  		<input type='text' name='date' placeholder='date' />
-  		<input type='submit' value='Save'>
-	</form>
+	<div class="wrapper">
+		<h1>Isabel's to do list</h1>
+		<ul>
+			<% @lines.each do |line| %>
+				<% task, date = line.split(" - ") %>
+				<li><%="#{task} #{date}"%> </li>
+			<% end %>	
+		</ul>
+		<h2> Add another climb!</h2>
+		<form action='/' method='POST'>
+	  		<strong>New Climb:</strong>
+	  		<input type='text' name='task' placeholder='climb' />
+	  		<input type='text' name='date' placeholder='date' />
+	  		<input type='submit' value='Save'>
+		</form>
+	</div>
 </body>
 </html>
 
