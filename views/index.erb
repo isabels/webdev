@@ -10,16 +10,22 @@
 		<ul>
 			<% @lines.each do |line| %>
 				<% task, date = line.split(" - ") %>
-				<li><%="#{task} #{date}"%> </li>
+				<li>
+					<%="#{task} "%> 
+					<span class="date"><%="#{date}"%></span>
+				</li>
 			<% end %>	
 		</ul>
 		<h2> Add another climb!</h2>
+					<div class="addNew">
+
 		<form action='/' method='POST'>
-	  		<strong>New Climb:</strong>
-	  		<input type='text' name='task' placeholder='climb' />
-	  		<input type='text' name='date' placeholder='date' />
-	  		<input type='submit' value='Save'>
+	  			<input type='text' name='task' placeholder='peak' />
+	  			<input type='text' name='date' placeholder='date' />
+	  			<input type='submit' value='Save'>
 		</form>
+			  		</div>
+
 	</div>
 </body>
 </html>
