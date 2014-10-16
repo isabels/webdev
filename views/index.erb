@@ -8,11 +8,10 @@
 	<div class="wrapper">
 		<h1>Isabel's to do list</h1>
 		<ul>
-			<% @lines.each do |line| %>
-				<% task, date = line.split(" - ") %>
+			<% @tasks.each do |task| %>
 				<li>
-					<%="#{task} "%> 
-					<span class="date"><%="#{date}"%></span>
+					<%="#{task.description} "%> 
+					<span class="date"><%="#{task.due_date}"%></span>
 				</li>
 			<% end %>	
 		</ul>
@@ -20,8 +19,8 @@
 					<div class="addNew">
 
 		<form action='/' method='POST'>
-	  			<input type='text' name='task' placeholder='peak' />
-	  			<input type='text' name='date' placeholder='date' />
+	  			<input type='text' name='description' placeholder='peak' />
+	  			<input type='text' name='due_date' placeholder='date' />
 	  			<input type='submit' value='Save'>
 		</form>
 			  		</div>
