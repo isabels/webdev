@@ -29,3 +29,8 @@ h1, h2 {
 .addNew {
 	font-style: italic;
 }
+
+ul
+{
+    list-style-type: none;
+}

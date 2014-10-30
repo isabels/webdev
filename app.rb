@@ -24,3 +24,15 @@ post '/' do
 	TodoItem.create(params)
   	redirect '/'
 end
+
+post '/delete/:item' do
+	TodoItem.find(params[:item]).destroy
+	redirect '/'
+end
+
+###
+# post '/some_endpoint' do
+#   some_user_data = params[:some_user_data]
+#   some_constant_data = params[:some_constant_data]
+#   # do some action with that data
+# end
