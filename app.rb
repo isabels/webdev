@@ -41,13 +41,13 @@ end
 post '/:user/create_item' do
 	@user = User.find(params[:user])
 	TodoItem.create(user: @user, description: params[:description], due_date: params[:due_date])
-	redirect '/users/#{@user}'
+	redirect "/users/#{@user.id.to_s}"
 end
 
 post '/delete/:user/:item' do
 	@user = User.find(params[:user])
 	TodoItem.find_by(id: params[:item]).destroy
-	redirect '/users/#{@user}'
+	redirect "/users/#{@user.id.to_s}"
 end
 
 ###

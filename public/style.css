@@ -17,8 +17,17 @@ body {
 
 }
 
-h1, h2 {
+h1, h2, h3 {
 	text-align: center;
+}
+
+a{
+	text-decoration: none;
+	color: #666666;
+}
+
+a:hover {
+    color: #000000;
 }
 
 .date{
