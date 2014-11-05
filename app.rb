@@ -26,39 +26,28 @@ post '/create_user' do
 	redirect '/'
 end
 
-post '/delete_user/:user' do
-	User.find_by(name: params[:user]).destroy
+post '/delete_user/:id' do
+	User.find_by(id: params[:id]).destroy
 	redirect '/'
 end
 
-####
-
-get '/users/:name' do
-	@user = User.find_by(name: params[:name])
-	@tasks = TodoItem.find_by(user_id: user.id)
+get '/users/:id' do
+	@user = User.find_by(id: params[:id])
+	# find(:first, :conditions => "user_name = '#{user_name}' AND password = '#{password}'")
+	@tasks = TodoItem.where(user_id: @user.id) 
 	erb :item_list
 end
 
-# post '/' do
-# 	TodoItem.create(params)
-#   	redirect '/'
-# end
-
-post '/:user_id/create_item' do
-	@user = User.find(params[:user_id])
-	TodoItem.create(user: @user, description: params[:description], due: params[:due])
+post '/:user/create_item' do
+	@user = User.find(params[:user])
+	TodoItem.create(user: @user, description: params[:description], due_date: params[:due_date])
 	redirect '/users/#{@user}'
 end
 
-
-
 post '/delete/:user/:item' do
-	TodoItem.find(params[:item]).destroy
-	redirect '/users/:user'
-end
-
-post '/users/:name' do
-	redirect '/users/:name'
+	@user = User.find(params[:user])
+	TodoItem.find_by(id: params[:item]).destroy
+	redirect '/users/#{@user}'
 end
 
 ###

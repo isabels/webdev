@@ -10,9 +10,9 @@
 		<ul>
 			<% @users.each do |user| %>
 				<li>
-					<form action="/delete_user/<%=user.name %>" method="POST"> <!--change this to delete path -->
+					<form action="/delete_user/<%=user.id %>" method="POST"> 
   						<input type="submit" value="x"/>
-  						<a href="/users/<%= user.name %>"><%= user.name %></a>
+  						<a href="/users/<%= user.id %>"><%= user.name %></a>
 					</form>
 
 				</li>
