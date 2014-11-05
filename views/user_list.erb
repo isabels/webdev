@@ -10,9 +10,9 @@
 		<ul>
 			<% @users.each do |user| %>
 				<li>
-					<form action="/users/<%=user.name %>" method="POST">
-  						<input type="submit" value="✓"/>
-  						<%="#{user.name} "%> 
+					<form action="/delete_user/<%=user.name %>" method="POST"> <!--change this to delete path -->
+  						<input type="submit" value="x"/>
+  						<a href="/users/<%= user.name %>"><%= user.name %></a>
 					</form>
 
 				</li>
@@ -22,8 +22,7 @@
 		<div class="addNew">
 
 		<form action='/create_user' method='POST'>
-	  			<input type='text' name='description' placeholder='peak' />
-	  			<input type='text' name='due_date' placeholder='date' />
+	  			<input type='text' name='name' placeholder='name' />
 	  			<input type='submit' value='Save'>
 		</form>
 		</div>

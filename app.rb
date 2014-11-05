@@ -21,9 +21,21 @@ get '/' do
 	erb :user_list
 end
 
+post '/create_user' do
+	User.create(params)
+	redirect '/'
+end
+
+post '/delete_user/:user' do
+	User.find_by(name: params[:user]).destroy
+	redirect '/'
+end
+
+####
+
 get '/users/:name' do
 	@user = User.find_by(name: params[:name])
-	@tasks = Todoitem.find_by(user_id: user.id)
+	@tasks = TodoItem.find_by(user_id: user.id)
 	erb :item_list
 end
 
@@ -38,15 +50,15 @@ post '/:user_id/create_item' do
 	redirect '/users/#{@user}'
 end
 
-post '/create_user' do
-	@user = User.find(params[:user_id])
-	TodoItem.create(user: @user, description: params[:description], due: params[:due])
-	redirect '/'
-end
+
 
 post '/delete/:user/:item' do
 	TodoItem.find(params[:item]).destroy
 	redirect '/users/:user'
+end
+
+post '/users/:name' do
+	redirect '/users/:name'
 end
 
 ###
